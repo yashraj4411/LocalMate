@@ -2,7 +2,7 @@
 
 LocalMate is a web platform that connects **job seekers** with **local employers**, making it easier to discover nearby job opportunities and hire quickly within the community.
 
-🔗 Live Website: https://yashraj4411.github.io/LocalMate/
+🔗 Live Website: https://localmate.netlify.app/
 📦 Repository: https://github.com/yashraj4411/LocalMate
 
 ---
@@ -26,7 +26,7 @@ LocalMate is a web platform that connects **job seekers** with **local employers
 * CSS3
 * JavaScript (Vanilla JS)
 * LocalStorage for session management
-* GitHub Pages for deployment
+* Netlify for deployment
 
 ---
 
@@ -86,7 +86,7 @@ The goal of LocalMate is to simplify the hiring process at a local level by prov
 ## 👨‍💻 Author
 
 **Yash Raj**
-Frontend Developer | ECE Student | Aspiring Software Engineer
+Frontend Developer | Aspiring Software Engineer
 
 GitHub: https://github.com/yashraj4411
 
