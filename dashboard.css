@@ -1,0 +1,182 @@
+/* ======================================================
+   LocalMate Dashboard — Light & Dark Mode (FIXED)
+   ====================================================== */
+
+/* ---------- Base Reset ---------- */
+body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* ---------- Dark Mode GLOBAL ---------- */
+html.dark body {
+  background-color: #0c0f1a !important;
+  color: #e6eef8 !important;
+}
+
+/* ---------- Header ---------- */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+html.dark .dashboard-header {
+  background: rgba(12, 15, 26, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- Logo ---------- */
+.logo-box {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Buttons ---------- */
+.theme-btn,
+.reset-btn,
+.logout-btn {
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  background: #e5e7eb;
+  font-size: 0.85rem;
+}
+
+html.dark .theme-btn,
+html.dark .reset-btn,
+html.dark .logout-btn {
+  background: #1e293b;
+  color: #e6eef8;
+}
+
+/* ---------- Tabs ---------- */
+.tab-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.tab-active {
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  color: white;
+}
+
+.tab-inactive {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+html.dark .tab-inactive {
+  background: #1e293b;
+  color: #e6eef8;
+}
+
+/* ---------- Inputs ---------- */
+.input-field {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #0f172a;
+}
+
+html.dark .input-field {
+  background: #0b1220;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e6eef8;
+}
+
+/* ---------- Stats Cards ---------- */
+.stats-card {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+html.dark .stats-card {
+  background: #0b1220;
+  color: #e6eef8;
+}
+
+html.dark .stats-card .text-gray-500 {
+  color: #94a3b8 !important;
+}
+
+/* ---------- Section Cards ---------- */
+.section-card {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+html.dark .section-card {
+  background: #0b1220;
+  color: #e6eef8;
+}
+
+/* ---------- Section Titles ---------- */
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+html.dark .section-title {
+  color: #f1f5f9;
+}
+
+/* ---------- Submit Button ---------- */
+.submit-btn {
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 10px;
+}
+
+/* ---------- Modal ---------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+}
+
+html.dark .modal-content {
+  background: #0b1220;
+  color: #e6eef8;
+}
+
+/* ---------- Notification ---------- */
+.notification-card {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 14px;
+}
+
+html.dark .notification-card {
+  background: #0b1220;
+  color: #e6eef8;
+}

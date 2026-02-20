@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>LocalMate — Local Helpers & Work Near You</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: { extend: {} },
+      };
+    </script>
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="icon" href="https://fav.farm/🧑‍💻" />
+  </head>
+  <body
+    id="pageRoot"
+    class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased"
+  >
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-50 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-b"
+    >
+      <div
+        class="container mx-auto px-5 py-3 flex items-center justify-between"
+      >
+        <a href="#" class="flex items-center gap-3">
+          <div
+            class="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-600 to-indigo-500 flex items-center justify-center text-white text-xl shadow-md"
+          >
+            LM
+          </div>
+          <div>
+            <div class="text-lg font-bold text-slate-800 dark:text-white">
+              LocalMate
+            </div>
+            <div class="text-xs text-slate-500 dark:text-slate-400 -mt-0.5">
+              Local Help • Fast
+            </div>
+          </div>
+        </a>
+
+        <nav id="mainNav" class="hidden md:flex gap-6 items-center">
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#jobs" class="nav-link">Jobs</a>
+          <a href="#auth" class="nav-link text-indigo-600 font-semibold">Career Suite</a>
+          <a href="#auth" class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 font-semibold">Post Job</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <button
+            id="themeToggle"
+            class="p-2 rounded-md bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600"
+            title="Toggle theme"
+          >
+            🌓
+          </button>
+          <a
+            href="#auth"
+            class="hidden md:inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 font-semibold"
+            >Access Account</a
+          >
+
+          <!-- Hamburger -->
+          <button
+            id="mobileBtn"
+            class="md:hidden p-2 rounded-md hover:bg-slate-100"
+            aria-label="Open menu"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-white dark:bg-slate-800 border-t"
+      >
+        <div class="px-5 py-4 flex flex-col gap-2">
+          <a href="#features" class="py-2 rounded hover:bg-slate-50"
+            >Features</a
+          >
+          <a href="#about" class="py-2 rounded hover:bg-slate-50">About</a>
+          <a href="#jobs" class="py-2 rounded hover:bg-slate-50">Jobs</a>
+          <a href="#auth" class="py-2 rounded hover:bg-slate-50"
+            >Career Suite</a
+          >
+          <a
+            href="#auth"
+            class="py-2 rounded bg-indigo-600 text-white text-center"
+            >Access Account</a
+          >
+        </div>
+      </div>
+    </header>
+
+    
+    <main>
+      <!-- Hero Section -->
+      <section class="relative pt-12 pb-16">
+  <div class="container mx-auto px-5 grid md:grid-cols-2 gap-10 items-center">
+
+    <!-- LEFT CONTENT -->
+    <div class="space-y-6">
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+        Find Local <span class="text-indigo-600 dark:text-indigo-300">Helpers</span> or
+        <span class="text-purple-600 dark:text-purple-300">Work</span>
+      </h1>
+
+      <p class="text-slate-600 dark:text-slate-400 max-w-xl">
+        Quickly connect with verified local helpers — plumbers, electricians,
+        tutors, mechanics and many more — and find work in your neighbourhood.
+        No sign-up required to browse.
+      </p>
+
+      <!-- ⭐ SEARCH BAR -->
+      <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow border">
+        <div class="grid md:grid-cols-3 gap-3">
+          <input
+            type="text"
+            placeholder="Search jobs or services"
+            class="px-4 py-3 rounded-md border focus:ring-2 focus:ring-indigo-500 outline-none dark:bg-slate-700 dark:text-slate-200 dark:border-gray-600"
+          />
+
+          <input
+            type="text"
+            placeholder="Location (e.g. Haldia)"
+            class="px-4 py-3 rounded-md border focus:ring-2 focus:ring-indigo-500 outline-none dark:bg-slate-700 dark:text-slate-200 dark:border-gray-600"
+          />
+
+          <button
+            class="bg-indigo-600 text-white px-4 py-3 rounded-md hover:bg-indigo-700 font-semibold"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+
+      <!-- CTA BUTTONS -->
+      <div class="flex gap-3">
+        <a
+          href="#jobs"
+          class="inline-flex items-center gap-2 bg-indigo-600 text-white px-5 py-3 rounded-lg shadow hover:bg-indigo-700 transform hover:-translate-y-0.5 transition"
+        >
+          Browse Local Jobs
+        </a>
+
+        <a
+          href="#about"
+          class="inline-flex items-center gap-2 border px-5 py-3 rounded-lg hover:bg-slate-50 transition dark:bg-slate-700 dark:text-slate-200 dark:border-gray-600"
+        >
+          How it works
+        </a>
+      </div>
+
+      <!-- ⭐ TRUST BADGES -->
+      <div class="flex flex-wrap gap-4 text-sm text-slate-500 dark:text-slate-400">
+        <span>✔ Verified helpers</span>
+        <span>⚡ Fast connections</span>
+        <span>🆓 Free to browse</span>
+      </div>
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="relative">
+      <div class="grid grid-cols-2 gap-4">
+
+        <div class="card overflow-hidden">
+          <img
+            src="Image/house cleaning.webp"
+            alt="cleaner"
+            class="w-full h-48 object-cover rounded-md"
+          />
+          <div class="p-3">
+            <div class="font-semibold">House Cleaning</div>
+            <div class="text-xs small-muted">1000+ Helpers</div>
+          </div>
+        </div>
+
+        <div class="card overflow-hidden">
+          <img
+            src="Image\plumber.webp"
+            alt="plumber"
+            class="w-full h-48 object-cover rounded-md"
+          />
+          <div class="p-3">
+            <div class="font-semibold">Plumbing</div>
+            <div class="text-xs small-muted">800+ Helpers</div>
+          </div>
+        </div>
+
+        <div class="card overflow-hidden col-span-2">
+          <div class="p-4 md:p-6">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="font-semibold">Quick local matches</div>
+                <div class="small-muted">
+                  Find trusted helpers near you — quick preview cards,
+                  ratings, and contact options.
+                </div>
+              </div>
+              <div>
+                <a href="#jobs" class="text-indigo-600 font-semibold">
+                  Explore →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+      <!-- Features Section -->
+      <section
+        id="features"
+        class="py-12 bg-slate-50 dark:bg-gray-900 transition-colors duration-300"
+      >
+        <div class="container mx-auto px-5 max-w-6xl text-center">
+          <h3 class="text-3xl font-bold mb-8 text-slate-800 dark:text-white">
+            Why Choose LocalMate?
+          </h3>
+          <div class="grid md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="card p-6 flex flex-col items-center text-center">
+              <div class="text-5xl mb-4">⚡</div>
+              <h4 class="text-xl font-semibold mb-2">Fast Connections</h4>
+              <p class="text-muted dark:text-gray-400">
+                Instantly connect with local helpers or work opportunities near
+                you.
+              </p>
+            </div>
+            <!-- Feature 2 -->
+            <div class="card p-6 flex flex-col items-center text-center">
+              <div class="text-5xl mb-4">🔒</div>
+              <h4 class="text-xl font-semibold mb-2">Verified & Trusted</h4>
+              <p class="text-muted dark:text-gray-400">
+                All helpers and hirers are verified for safety and reliability.
+              </p>
+            </div>
+            <!-- Feature 3 -->
+            <div class="card p-6 flex flex-col items-center text-center">
+              <div class="text-5xl mb-4">💡</div>
+              <h4 class="text-xl font-semibold mb-2">Smart Matches</h4>
+              <p class="text-muted dark:text-gray-400">
+                Get tailored recommendations based on your location and needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Auth Panel -->
+      <section id="auth" class="py-12 bg-white dark:bg-slate-800">
+        <div class="container mx-auto px-5 max-w-3xl">
+          <div
+            class="bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-3xl p-6 md:p-8 shadow-lg border border-gray-200 dark:border-gray-700"
+          >
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="text-2xl font-bold dark:text-white">Access your account</h2>
+              <div class="text-sm text-slate-600 dark:text-slate-400">
+                Register as job-seeker or hirer
+              </div>
+            </div>
+
+            <div class="flex gap-3 mb-5">
+              <button
+                id="tabLogin"
+                class="flex-1 py-2 rounded-md bg-indigo-600 text-white font-semibold"
+              >
+                Login
+              </button>
+              <button
+                id="tabRegister"
+                class="flex-1 py-2 rounded-md border border-gray-200 dark:border-gray-600 hover:bg-slate-50 dark:hover:bg-slate-700 dark:text-slate-200 text-contrast-dark"
+              >
+                Register
+              </button>
+            </div>
+
+            <div id="panelLogin">
+              <form id="loginForm" class="grid gap-4" onsubmit="return false;">
+                <input
+                  id="loginEmail"
+                  type="email"
+                  placeholder="Email"
+                  required
+                  class="px-4 py-3 rounded-md border dark:bg-slate-700 dark:text-slate-200 dark:border-gray-600"
+                />
+                <input
+                  id="loginPassword"
+                  type="password"
+                  placeholder="Password"
+                  required
+                  class="px-4 py-3 rounded-md border dark:bg-slate-700 dark:text-slate-200 dark:border-gray-600"
+                />
+                <div class="flex items-center justify-between text-sm">
+                  <label class="flex items-center gap-2 text-slate-700 dark:text-slate-300"
+                    ><input id="remember" type="checkbox" /> Remember me</label
+                  >
+                  <a href="#" class="text-indigo-600 dark:text-indigo-300">Forgot?</a>
+                </div>
+                <div class="flex gap-3">
+                  <button
+                    id="loginBtn"
+                    class="flex-1 bg-indigo-600 text-white px-4 py-3 rounded-md">
+
+                    Login
+                  </button>
+                  <button
+                    id="toRegister"
+                    class="flex-1 border border-gray-200 dark:border-gray-600 px-4 py-3 rounded-md dark:text-slate-200 text-contrast-dark">
+                    Register
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div id="panelRegister" class="hidden">
+              <form
+                id="registerForm"
+                class="grid gap-4"
+                onsubmit="return false;"
+              >
+                <select id="regRole" class="px-4 py-3 rounded-md border dark:bg-slate-700 dark:text-slate-200 dark:border-gray-600">
+                  <option value="">Select role</option>
+                  <option value="Job Seeker">Job Seeker</option>
+                  <option value="Hirer">Hirer</option>
+                </select>
+                <input
+                  id="regEmail"
+                  type="email"
+                  placeholder="Email"
+                  class="px-4 py-3 rounded-md border dark:bg-slate-700 dark:text-slate-200 dark:border-gray-600"
+                />
+                <input
+                  id="regPassword"
+                  type="password"
+                  placeholder="Create password"
+                  class="px-4 py-3 rounded-md border dark:bg-slate-700 dark:text-slate-200 dark:border-gray-600"
+                />
+                <div class="flex gap-3">
+                  <button
+                    id="registerBtn"
+                    class="flex-1 bg-indigo-600 text-white px-4 py-3 rounded-md"
+                  >
+                    Register
+                  </button>
+                  <button
+                    id="toLogin"
+                    class="flex-1 border border-gray-200 dark:border-gray-600 px-4 py-3 rounded-md dark:text-slate-200 text-contrast-dark"
+                  >
+                    Back to Login
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Categories Section -->
+      <section id="jobs" class="py-16 bg-white dark:bg-slate-800">
+        <div class="container mx-auto px-5">
+          <h3 class="text-3xl font-bold mb-8 text-center">
+            Explore Categories
+          </h3>
+          <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+            <!-- Labour -->
+            <div
+              class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer"
+            >
+              <img
+                src="Image/labour.jpg"
+                alt="Labour"
+                class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-80 transition-opacity flex flex-col items-center justify-center text-white p-4"
+              >
+                <div class="text-4xl mb-2">🧹</div>
+                <h4 class="text-xl font-semibold mb-1">Labour</h4>
+                <p class="text-sm">1000+ Helpers available near you</p>
+              </div>
+            </div>
+
+            <!-- Mechanics -->
+            <div
+              class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer"
+            >
+              <img
+                src="Image/mechanics.jpg"
+                alt="Mechanics"
+                class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-80 transition-opacity flex flex-col items-center justify-center text-white p-4"
+              >
+                <div class="text-4xl mb-2">🚗</div>
+                <h4 class="text-xl font-semibold mb-1">Mechanics</h4>
+                <p class="text-sm">500+ Mechanics ready to help</p>
+              </div>
+            </div>
+
+            <!-- Driving Services -->
+            <div
+              class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer"
+            >
+              <img
+                src="Image/driver.jpg"
+                alt="Driving Services"
+                class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-80 transition-opacity flex flex-col items-center justify-center text-white p-4"
+              >
+                <div class="text-4xl mb-2">🚗</div>
+                <h4 class="text-xl font-semibold mb-1">Driving Services</h4>
+                <p class="text-sm">800+ Drivers available</p>
+              </div>
+            </div>
+
+            <!-- Electricians -->
+            <div
+              class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer"
+            >
+              <img
+                src="Image/electrician.jpg"
+                alt="Electricians"
+                class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-80 transition-opacity flex flex-col items-center justify-center text-white p-4"
+              >
+                <div class="text-4xl mb-2">🛠️</div>
+                <h4 class="text-xl font-semibold mb-1">Electricians</h4>
+                <p class="text-sm">650+ Professionals near you</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-16 bg-slate-50 dark:bg-slate-800">
+        <div class="container mx-auto px-5 text-center space-y-6">
+          <h2 class="text-3xl font-bold mb-4">About LocalMate</h2>
+          <p class="max-w-2xl mx-auto text-slate-600 dark:text-slate-400">
+            LocalMate connects people with verified local helpers or gigs in
+            their area. Whether you are looking for work or hiring trusted
+            professionals, our platform makes it fast and easy. We prioritize
+            trust, safety, and convenience for both job seekers and employers.
+          </p>
+
+          <div class="grid md:grid-cols-3 gap-8 mt-8 text-left">
+            <div
+              class="flex flex-col items-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow hover:shadow-lg transition"
+            >
+              <div class="text-4xl mb-4">🔒</div>
+              <h3 class="font-semibold mb-2">Trusted & Verified</h3>
+              <p class="small-muted text-center">
+                All helpers are verified to ensure you get reliable and safe
+                services every time.
+              </p>
+            </div>
+            <div
+              class="flex flex-col items-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow hover:shadow-lg transition"
+            >
+              <div class="text-4xl mb-4">⚡</div>
+              <h3 class="font-semibold mb-2">Quick & Easy</h3>
+              <p class="small-muted text-center">
+                Find local work or hire helpers in minutes with simple search
+                and instant contact options.
+              </p>
+            </div>
+            <div
+              class="flex flex-col items-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow hover:shadow-lg transition"
+            >
+              <div class="text-4xl mb-4">💰</div>
+              <h3 class="font-semibold mb-2">Affordable Rates</h3>
+              <p class="small-muted text-center">
+                Choose services and gigs that fit your budget — no hidden fees,
+                no surprises.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats Section -->
+      <section class="py-8 bg-indigo-50 dark:bg-indigo-900/20">
+        <div class="container mx-auto px-5 text-center">
+          <div class="grid md:grid-cols-4 gap-6">
+            <div>
+              <div class="text-3xl font-bold text-indigo-600">10,000+</div>
+              <div class="text-slate-600 dark:text-slate-400">Helpers</div>
+            </div>
+            <div>
+              <div class="text-3xl font-bold text-indigo-600">50,000+</div>
+              <div class="text-slate-600 dark:text-slate-400">Jobs Posted</div>
+            </div>
+            <div>
+              <div class="text-3xl font-bold text-indigo-600">100+</div>
+              <div class="text-slate-600 dark:text-slate-400">Cities</div>
+            </div>
+            <div>
+              <div class="text-3xl font-bold text-indigo-600">4.8★</div>
+              <div class="text-slate-600 dark:text-slate-400">Avg Rating</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reviews Section -->
+      <section id="reviews" class="py-16 bg-slate-50 dark:bg-slate-800">
+        <div class="container mx-auto px-5">
+          <h2 class="text-3xl font-bold mb-6 text-center">Real Reviews</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="card p-6 shadow hover:shadow-lg transition rounded-xl">
+              <div class="flex items-center mb-2 text-yellow-400">
+                ⭐⭐⭐⭐⭐
+              </div>
+              <p>“Found a great maid in two days. Highly recommend!”</p>
+              <div class="small-muted mt-3">— Priya, Mumbai</div>
+            </div>
+            <div class="card p-6 shadow hover:shadow-lg transition rounded-xl">
+              <div class="flex items-center mb-2 text-yellow-400">
+                ⭐⭐⭐⭐⭐
+              </div>
+              <p>
+                “Got a driving client within hours. Fast and reliable service.”
+              </p>
+              <div class="small-muted mt-3">— Ramesh, BLR</div>
+            </div>
+            <div class="card p-6 shadow hover:shadow-lg transition rounded-xl">
+              <div class="flex items-center mb-2 text-yellow-400">
+                ⭐⭐⭐⭐⭐
+              </div>
+              <p>
+                “Very helpful and professional. Easy to find trusted helpers.”
+              </p>
+              <div class="small-muted mt-3">— Neha, Delhi</div>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-6 mt-6">
+            <div class="card p-6 shadow hover:shadow-lg transition rounded-xl">
+              <div class="flex items-center mb-2 text-yellow-400">
+                ⭐⭐⭐⭐⭐
+              </div>
+              <p>
+                “Excellent platform for part-time work. Simple and fast
+                registration.”
+              </p>
+              <div class="small-muted mt-3">— Arjun, Pune</div>
+            </div>
+            <div class="card p-6 shadow hover:shadow-lg transition rounded-xl">
+              <div class="flex items-center mb-2 text-yellow-400">
+                ⭐⭐⭐⭐⭐
+              </div>
+              <p>
+                “Cleaners were professional and on time. I’ll use it again.”
+              </p>
+              <div class="small-muted mt-3">— Kavita, Delhi</div>
+            </div>
+            <div class="card p-6 shadow hover:shadow-lg transition rounded-xl">
+              <div class="flex items-center mb-2 text-yellow-400">
+                ⭐⭐⭐⭐⭐
+              </div>
+              <p>
+                “Great variety of local jobs. Highly recommend for freelancers.”
+              </p>
+              <div class="small-muted mt-3">— Sameer, Bangalore</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 bg-slate-800 text-slate-200 mt-8">
+      <div class="container mx-auto px-5 text-center small-muted">
+        © 2025 LocalMate • Built for demo
+      </div>
+    </footer>
+
+    <!-- External JS -->
+    <script src="script.js" defer></script>
+  </body>
+</html>

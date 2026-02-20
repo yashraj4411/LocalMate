@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>LocalMate Dashboard</title>
+
+    <!-- Tailwind for layout -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Global shared site styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Dashboard-specific styles -->
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+
+  <body id="pageRoot" class="bg-slate-100 font-sans text-slate-800">
+    <!-- Header -->
+    <header class="dashboard-header sticky top-0 z-50 backdrop-blur bg-white/90 dark:bg-slate-900/90">
+      <div class="dashboard-title">
+        <div class="logo-box">LM</div>
+        <span>LocalMate Dashboard</span>
+      </div>
+
+      <div class="header-actions">
+        <span id="roleBadge" class="px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm">Role</span>
+        <button id="themeToggle" class="theme-btn">🌓</button>
+        <button id="resetBtn" class="reset-btn">Reset Demo</button>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto p-6 space-y-8">
+      <!-- Welcome Card -->
+      <div
+        class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-6 rounded-xl shadow"
+      >
+        <h1 id="welcomeMsg" class="text-2xl font-bold">Welcome back 👋</h1>
+        <p class="opacity-90">
+          Manage jobs, applications, and opportunities in one place.
+        </p>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid md:grid-cols-3 gap-4">
+        <div
+          class="stats-card p-5 rounded-xl shadow hover:shadow-md transition"
+        >
+          <div class="text-sm text-gray-500">📄 Jobs Posted</div>
+          <div class="text-2xl font-bold">0</div>
+        </div>
+
+        <div
+          class="stats-card p-5 rounded-xl shadow hover:shadow-md transition"
+        >
+          <div class="text-sm text-gray-500">📬 Applications</div>
+          <div class="text-2xl font-bold">0</div>
+        </div>
+
+        <div
+          class="stats-card p-5 rounded-xl shadow hover:shadow-md transition"
+        >
+          <div class="text-sm text-gray-500">⭐ Saved Jobs</div>
+          <div class="text-2xl font-bold">0</div>
+        </div>
+      </div>
+
+      <!-- Location Card -->
+      <div class="section-card p-6 rounded-xl shadow">
+        <label class="block text-sm font-medium mb-2">📍 Your Location</label>
+        <input
+          type="text"
+          id="userLocation"
+          class="input-field"
+          placeholder="Enter your city"
+        />
+      </div>
+
+      <!-- Tabs -->
+      <div class="flex gap-3">
+        <button id="allJobsBtn" class="tab-btn tab-active">All Jobs</button>
+        <button id="myPostsBtn" class="tab-btn tab-inactive">My Posts</button>
+      </div>
+
+      <!-- Job Section -->
+      <div id="seekerSection" class="section-card p-6 rounded-xl shadow">
+        <h2 class="text-lg font-semibold mb-4">💼 Job Listings</h2>
+        <div id="jobList" class="space-y-4"></div>
+      </div>
+
+      <!-- Post Job -->
+      <div id="hirerSection" class="section-card p-6 rounded-xl shadow">
+        <h2 class="text-lg font-semibold mb-4">📝 Post a Job</h2>
+
+        <form id="postForm" class="space-y-3">
+          <input
+            type="text"
+            id="jobTitle"
+            class="input-field"
+            placeholder="Job Title"
+            required
+          />
+          <input
+            type="text"
+            id="location"
+            class="input-field"
+            placeholder="Location"
+            required
+          />
+          <input
+            type="text"
+            id="timing"
+            class="input-field"
+            placeholder="Timing"
+            required
+          />
+          <input
+            type="text"
+            id="salary"
+            class="input-field"
+            placeholder="Salary"
+            required
+          />
+
+          <button
+            class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition"
+          >
+            Post Job
+          </button>
+        </form>
+      </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal" style="display: none">
+      <div class="modal-content">
+        <h3 class="text-lg font-semibold mb-4">Contact / Apply</h3>
+        <form id="modalForm" class="space-y-3">
+          <input
+            type="text"
+            id="modalName"
+            class="input-field"
+            placeholder="Your Name"
+            required
+          />
+          <input
+            type="email"
+            id="modalEmail"
+            class="input-field"
+            placeholder="Your Email"
+            required
+          />
+          <input
+            type="tel"
+            id="modalPhone"
+            class="input-field"
+            placeholder="Phone Number"
+            required
+          />
+          <textarea
+            id="modalMessage"
+            class="input-field h-24 resize-none"
+            placeholder="Message / Requirements"
+            required
+          ></textarea>
+
+          <div class="flex justify-between">
+            <button type="submit" class="modal-submit">Submit</button>
+            <button type="button" id="modalCancel" class="modal-cancel">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Notification used by script.js -->
+    <div id="notification" class="notification">
+      <div id="notificationCard" class="notification-card">
+        <div id="notificationText" class="text-slate-800"></div>
+        <button id="closeNotification" class="notif-close">Close</button>
+      </div>
+    </div>
+
+    <!-- Shared site JS -->
+    <script src="script.js" defer></script>
+
+    <!-- Dashboard-specific JS -->
+    <script src="dashboard.js" defer></script>
+  </body>
+</html>
